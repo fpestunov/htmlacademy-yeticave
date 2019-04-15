@@ -51,6 +51,22 @@ $lot_list = [
     ]
 ];
 
+function format_sum(int $number):string
+{
+    $decimals = 0;
+    $dec_point = ".";
+    $thousands_sep = " ";
+
+    $result = number_format(
+        ceil($number),
+        $decimals,
+        $dec_point,
+        $thousands_sep
+    );
+
+    return $result . '<b class="rub">р</b>';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -129,7 +145,7 @@ $lot_list = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$lot['price'];?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=format_sum($lot['price']);?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
