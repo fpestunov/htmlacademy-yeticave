@@ -27,10 +27,10 @@
                 <div class="lot__state">
                     <div class="lot__rate">
                         <span class="lot__amount">Стартовая цена</span>
-                        <span class="lot__cost"><?=esc(format_sum($lot['price']));?></span>
+                        <span class="lot__cost"><?=format_sum(esc($lot['price']));?></span>
                     </div>
-                    <div class="lot__timer timer">
-                        12:23
+                    <div class="lot__timer timer <?=add_css_timer_finishing(secs_to_midnight());?>">
+                        <?=format_timer(secs_to_midnight());?>
                     </div>
                 </div>
             </div>
